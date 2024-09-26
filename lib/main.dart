@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/colors.dart';
 import 'package:todolist/widgets/todo_list.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           useMaterial3: true,
+          scaffoldBackgroundColor: backgroundColor,
         ),
         themeMode: ThemeMode.light,
         home: const Scaffold(body: TodoList()));
