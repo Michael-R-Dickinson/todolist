@@ -16,6 +16,14 @@ class TodoList extends StatelessWidget {
             margin: const EdgeInsets.all(8),
             padding: const EdgeInsets.fromLTRB(2, 16, 10, 16),
             decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  spreadRadius: -5,
+                  offset: Offset(0, 10),
+                ),
+              ],
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
                 color: Colors.black,
