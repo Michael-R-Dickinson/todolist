@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todolist/widgets/completion_circle.dart';
 import 'package:todolist/widgets/task_item/task_chip.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
+import 'package:todolist/widgets/vertical_line_divider.dart';
 
 const titlePlaceholder = "Website for Rune.io";
 const descriptionPlaceholder =
@@ -20,9 +21,17 @@ class DefaultTaskItem extends StatelessWidget {
         const SizedBox(height: 8),
         Wrap(
           spacing: 10,
+          // alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             const IconTextTaskChip(),
-            DueDateTaskChip(dueDate: DateTime.now()),
+            const VerticalLineDivider(),
+            DueDateTaskChip(
+                dueDate: DateTime.now().add(const Duration(days: 3))),
+            const VerticalLineDivider(),
+            DueDateTaskChip(
+              dueDate: DateTime.now().add(const Duration(days: 200)),
+            ),
           ],
         ),
       ],
