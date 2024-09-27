@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/colors.dart';
 
+const basicShadow = BoxShadow(
+  color: Colors.black,
+  spreadRadius: -5,
+  offset: Offset(0, 10),
+);
+
 final customTheme = ThemeData(
   useMaterial3: true,
   textTheme: const TextTheme(
