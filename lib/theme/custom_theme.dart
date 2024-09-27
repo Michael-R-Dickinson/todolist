@@ -5,11 +5,17 @@ final customTheme = ThemeData(
   useMaterial3: true,
   textTheme: const TextTheme(
     titleMedium: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w500,
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'LinikSans',
+      letterSpacing: 0.4,
     ),
     bodyMedium: TextStyle(
-        fontSize: 14, fontWeight: FontWeight.normal, color: textLight),
+      fontSize: 12,
+      fontWeight: FontWeight.normal,
+      color: textLight,
+      fontFamily: 'LinikSans',
+    ),
   ),
   scaffoldBackgroundColor: backgroundColor,
 );

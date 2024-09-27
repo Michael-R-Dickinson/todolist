@@ -16,10 +16,11 @@ class TaskText extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
             textHeightBehavior:
                 const TextHeightBehavior(applyHeightToLastDescent: false),
           ),
+          const SizedBox(height: 4),
           Text(
             description,
             style: Theme.of(context).textTheme.bodyMedium,

@@ -13,12 +13,13 @@ class TodoList extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.all(8),
-            padding: const EdgeInsets.all(3),
+            padding: const EdgeInsets.fromLTRB(2, 16, 10, 16),
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
               border: Border.all(
                 color: Colors.black,
                 style: BorderStyle.solid,
-                width: 2,
+                width: 1,
               ),
             ),
             child: Row(
@@ -27,13 +28,12 @@ class TodoList extends StatelessWidget {
                 const Expanded(
                   child: Row(
                     children: [
-                      CompleteCheckbox(),
                       SizedBox(
                         width: 15,
                       ),
                       Expanded(
                         child: TaskText(
-                            title: "task tile!",
+                            title: "Website for Rune.io",
                             description:
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit asdf asdfa asdf"),
                       ),
