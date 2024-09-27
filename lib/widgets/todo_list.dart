@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:todolist/widgets/complete_checkbox.dart';
+import 'package:todolist/widgets/progress_circle.dart';
 import 'package:todolist/widgets/task_text.dart';
 
 class TodoList extends StatelessWidget {
@@ -22,10 +23,10 @@ class TodoList extends StatelessWidget {
                 width: 1,
               ),
             ),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Expanded(
+                Expanded(
                   child: Row(
                     children: [
                       SizedBox(
@@ -40,9 +41,7 @@ class TodoList extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  child: const Text('progress'),
-                ),
+                ProgressCircle(percent: 0.5),
               ],
             ),
           )
