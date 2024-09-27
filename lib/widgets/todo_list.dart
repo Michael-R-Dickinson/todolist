@@ -24,17 +24,21 @@ class TodoList extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  child: const Row(children: [
-                    CompleteCheckbox(),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    TaskText(
-                      title: "task tile!",
-                      description: "desc",
-                    ),
-                  ]),
+                const Expanded(
+                  child: Row(
+                    children: [
+                      CompleteCheckbox(),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Expanded(
+                        child: TaskText(
+                            title: "task tile!",
+                            description:
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit asdf asdfa asdf"),
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   child: const Text('progress'),
