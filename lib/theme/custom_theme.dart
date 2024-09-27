@@ -7,6 +7,12 @@ const basicShadow = BoxShadow(
   offset: Offset(0, 10),
 );
 
+const compactShadow = BoxShadow(
+  color: Colors.black,
+  spreadRadius: -3,
+  offset: Offset(-7, -7),
+);
+
 final customTheme = ThemeData(
   useMaterial3: true,
   textTheme: const TextTheme(

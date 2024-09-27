@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class TaskText extends StatelessWidget {
   final String title;
-  final String description;
+  final String? description;
 
-  const TaskText({super.key, required this.title, required this.description});
+  const TaskText({super.key, required this.title, this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,11 @@ class TaskText extends StatelessWidget {
                 const TextHeightBehavior(applyHeightToLastDescent: false),
           ),
           const SizedBox(height: 4),
-          Text(
-            description,
-            style: Theme.of(context).textTheme.bodyMedium,
-          )
+          if (description != null)
+            Text(
+              description!,
+              style: Theme.of(context).textTheme.bodyMedium,
+            )
         ]);
   }
 }

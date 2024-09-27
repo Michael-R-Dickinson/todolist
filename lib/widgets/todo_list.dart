@@ -9,7 +9,26 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Column(
-        children: [TaskItem(), TaskItem()],
+        children: [
+          BaseTaskItem(
+            isCompactMode: true,
+          ),
+          BaseTaskItem(
+            isCompactMode: true,
+          ),
+          BaseTaskItem(
+            isCompactMode: true,
+          ),
+          BaseTaskItem(
+            isCompactMode: false,
+          ),
+          BaseTaskItem(
+            isCompactMode: false,
+          ),
+          BaseTaskItem(
+            isCompactMode: false,
+          )
+        ],
       ),
     );
   }
