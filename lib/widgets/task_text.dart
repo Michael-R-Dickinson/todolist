@@ -10,6 +10,18 @@ class TaskText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Text(title), Text(description)]);
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleLarge,
+            textHeightBehavior:
+                const TextHeightBehavior(applyHeightToLastDescent: false),
+          ),
+          Text(
+            description,
+            style: Theme.of(context).textTheme.bodyMedium,
+          )
+        ]);
   }
 }

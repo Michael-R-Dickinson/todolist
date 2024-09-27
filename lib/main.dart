@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/colors.dart';
+import 'package:todolist/theme/custom_theme.dart';
 import 'package:todolist/widgets/todo_list.dart';
 
 void main() {
@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          useMaterial3: true,
-          scaffoldBackgroundColor: backgroundColor,
-        ),
+        theme: customTheme,
         themeMode: ThemeMode.light,
         home: const Scaffold(body: TodoList()));
   }

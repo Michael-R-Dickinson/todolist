@@ -27,6 +27,9 @@ class TodoList extends StatelessWidget {
                 Container(
                   child: const Row(children: [
                     CompleteCheckbox(),
+                    SizedBox(
+                      width: 15,
+                    ),
                     TaskText(
                       title: "task tile!",
                       description: "desc",
