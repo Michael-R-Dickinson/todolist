@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:todolist/widgets/complete_checkbox.dart';
 import 'package:todolist/widgets/task_text.dart';
 
 class TodoList extends StatelessWidget {
@@ -7,18 +9,36 @@ class TodoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Stack(
+      child: Column(
         children: [
           Container(
-              child: Row(
-            children: [
-              const TaskText(
-                title: "task tile!",
-                description: "desc",
+            margin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                style: BorderStyle.solid,
+                width: 2,
               ),
-              Container(),
-            ],
-          ))
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  child: const Row(children: [
+                    CompleteCheckbox(),
+                    TaskText(
+                      title: "task tile!",
+                      description: "desc",
+                    ),
+                  ]),
+                ),
+                Container(
+                  child: const Text('progress'),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

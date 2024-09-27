@@ -8,6 +8,8 @@ class TaskText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title);
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [Text(title), Text(description)]);
   }
 }
