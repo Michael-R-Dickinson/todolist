@@ -18,10 +18,12 @@ class TaskItemWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double yPadding = !isCompactMode ? 16 : 12;
+    const double xPadding = 16;
     return Container(
         width: double.infinity,
         margin: const EdgeInsets.all(8),
-        padding: const EdgeInsets.fromLTRB(16, 16, 10, 16),
+        padding: EdgeInsets.fromLTRB(xPadding, yPadding, xPadding, yPadding),
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           boxShadow: [
