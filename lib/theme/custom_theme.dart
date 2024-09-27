@@ -25,7 +25,6 @@ final customTheme = ThemeData(
     bodyMedium: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.normal,
-      color: textLight,
       fontFamily: 'LinikSans',
     ),
   ),

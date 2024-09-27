@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/custom_theme.dart';
-import 'package:todolist/widgets/completion_circle.dart';
-import 'package:todolist/widgets/task_text.dart';
+import 'package:todolist/widgets/task_item/compact_task.dart';
+import 'package:todolist/widgets/task_item/default_task.dart';
 
 const titlePlaceholder = "Website for Rune.io";
 const descriptionPlaceholder =
@@ -51,39 +51,5 @@ class BaseTaskItem extends StatelessWidget {
       isCompactMode: isCompactMode,
       child: isCompactMode ? const CompactTaskItem() : const DefaultTaskItem(),
     );
-  }
-}
-
-class DefaultTaskItem extends StatelessWidget {
-  const DefaultTaskItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(
-                child: TaskText(
-                    title: titlePlaceholder,
-                    description: descriptionPlaceholder),
-              ),
-            ],
-          ),
-        ),
-        ProgressCircle(percent: 0.5),
-      ],
-    );
-  }
-}
-
-class CompactTaskItem extends StatelessWidget {
-  const CompactTaskItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const TaskText(title: titlePlaceholder);
   }
 }

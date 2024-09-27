@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/custom_theme.dart';
-import 'package:todolist/widgets/todo_list.dart';
+import 'package:todolist/widgets/task_list.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:todolist/theme/colors.dart';
 
 class TaskText extends StatelessWidget {
   final String title;
@@ -24,7 +25,9 @@ class TaskText extends StatelessWidget {
           if (description != null)
             Text(
               description!,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: textLight,
+                  ),
             )
         ]);
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:todolist/widgets/task.dart';
+import 'package:todolist/widgets/task_item/base_task.dart';
 
 class TodoList extends StatelessWidget {
   const TodoList({super.key});
@@ -15,12 +15,6 @@ class TodoList extends StatelessWidget {
           ),
           BaseTaskItem(
             isCompactMode: true,
-          ),
-          BaseTaskItem(
-            isCompactMode: true,
-          ),
-          BaseTaskItem(
-            isCompactMode: false,
           ),
           BaseTaskItem(
             isCompactMode: false,
