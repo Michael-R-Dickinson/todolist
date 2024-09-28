@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/providers/compact_mode_provider.dart';
 import 'package:todolist/theme/custom_theme.dart';
 import 'package:todolist/widgets/task_item/compact_task.dart';
 import 'package:todolist/widgets/task_item/default_task.dart';
@@ -37,17 +39,17 @@ class TaskItemWrapper extends StatelessWidget {
   }
 }
 
-class BaseTaskItem extends StatelessWidget {
+class BaseTaskItem extends ConsumerWidget {
   final String id;
-  final bool isCompactMode;
   const BaseTaskItem({
     super.key,
     required this.id,
-    required this.isCompactMode,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bool isCompactMode = ref.watch(compactModeProvider);
+
     return TaskItemWrapper(
       isCompactMode: isCompactMode,
       child: isCompactMode ? CompactTaskItem(id: id) : DefaultTaskItem(id: id),
