@@ -1,4 +1,5 @@
 import 'package:riverpod/riverpod.dart';
+import 'package:todolist/schemas/task.dart';
 
 final testingTasks = [
   Task(
@@ -17,26 +18,6 @@ final testingTasks = [
     name: "Ooh Laa Laa",
   )
 ];
-
-class Task {
-  String id;
-  String name;
-  String? description;
-
-  Task({required this.id, required this.name, this.description});
-
-  // ! Investigate a dataclass or smthn
-  Task copyWith({
-    String? name,
-    String? description,
-  }) {
-    return Task(
-      id: id,
-      name: name ?? this.name,
-      description: description ?? this.description,
-    );
-  }
-}
 
 // Todo List Provider
 final taskListProvider = StateNotifierProvider<TaskListNotifier, List<Task>>(
