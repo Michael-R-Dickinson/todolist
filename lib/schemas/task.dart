@@ -43,6 +43,14 @@ class Task {
       id: id,
       name: name ?? this.name,
       description: description ?? this.description,
+      storyPoints: storyPoints,
+      dueDate: dueDate,
+      doDate: doDate,
+      emergency: emergency,
+      locational: locational,
+      projectId: projectId,
+      timeLog: timeLog,
+      fracIndexOrder: fracIndexOrder,
     );
   }
 }
