@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/providers/compact_mode_provider.dart';
-import 'package:todolist/providers/todo_provider.dart';
+import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/widgets/task_item/base_task.dart';
 
 class TodoList extends ConsumerWidget {
