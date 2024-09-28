@@ -3,10 +3,6 @@ import 'package:todolist/theme/custom_theme.dart';
 import 'package:todolist/widgets/task_item/compact_task.dart';
 import 'package:todolist/widgets/task_item/default_task.dart';
 
-const titlePlaceholder = "Website for Rune.io";
-const descriptionPlaceholder =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit asdf asdfa asdf";
-
 class TaskItemWrapper extends StatelessWidget {
   final Widget child;
   final bool isCompactMode;
@@ -42,14 +38,19 @@ class TaskItemWrapper extends StatelessWidget {
 }
 
 class BaseTaskItem extends StatelessWidget {
+  final String id;
   final bool isCompactMode;
-  const BaseTaskItem({super.key, required this.isCompactMode});
+  const BaseTaskItem({
+    super.key,
+    required this.id,
+    required this.isCompactMode,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TaskItemWrapper(
       isCompactMode: isCompactMode,
-      child: isCompactMode ? const CompactTaskItem() : const DefaultTaskItem(),
+      child: isCompactMode ? CompactTaskItem(id: id) : DefaultTaskItem(id: id),
     );
   }
 }

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/providers/todo_provider.dart';
 import 'package:todolist/widgets/completion_circle.dart';
 import 'package:todolist/widgets/task_item/task_chip.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
 import 'package:todolist/widgets/vertical_line_divider.dart';
 
-const titlePlaceholder = "Website for Rune.io";
-const descriptionPlaceholder =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit asdf asdfa asdf";
-
 class DefaultTaskItem extends StatelessWidget {
-  const DefaultTaskItem({super.key});
+  final String id;
+  const DefaultTaskItem({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class DefaultTaskItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       textBaseline: TextBaseline.alphabetic,
       children: [
-        const TaskBasicInfo(),
+        TaskBasicInfo(id: id),
         const SizedBox(height: 8),
         Wrap(
           spacing: 10,
@@ -39,28 +38,32 @@ class DefaultTaskItem extends StatelessWidget {
   }
 }
 
-class TaskBasicInfo extends StatelessWidget {
+class TaskBasicInfo extends ConsumerWidget {
+  final String id;
   const TaskBasicInfo({
     super.key,
+    required this.id,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return const Row(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final task = ref.watch(taskProvider(id));
+    if (task == null) return const SizedBox.shrink();
+
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
           child: Row(
             children: [
               Expanded(
-                child: TaskText(
-                    title: titlePlaceholder,
-                    description: descriptionPlaceholder),
+                child:
+                    TaskText(title: task.name, description: task.description),
               ),
             ],
           ),
         ),
-        ProgressCircle(percent: 0.5),
+        const ProgressCircle(percent: 0.5),
       ],
     );
   }
