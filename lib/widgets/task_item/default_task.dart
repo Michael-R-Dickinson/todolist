@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/providers/task_provider.dart';
+import 'package:todolist/providers/view_settings_provider.dart';
+import 'package:todolist/schemas/task.dart';
 import 'package:todolist/widgets/completion_circle.dart';
 import 'package:todolist/widgets/task_item/task_chip.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
@@ -12,7 +14,7 @@ class DefaultTaskItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final task = ref.watch(taskProvider(id));
+    final Task? task = ref.watch(taskProvider(id));
     if (task == null) return const SizedBox.shrink();
 
     return Column(
@@ -26,24 +28,49 @@ class DefaultTaskItem extends ConsumerWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             const IconTextTaskChip(),
-            if (task.dueDate != null) ...[
-              const VerticalLineDivider(),
-              DateTaskChip(
-                prefix: "Due",
-                dueDate: task.dueDate!,
-              ),
-            ],
-            if (task.doDate != null) ...[
-              const VerticalLineDivider(),
-              DateTaskChip(
-                prefix: "Do",
-                dueDate: task.doDate!,
-              ),
-            ],
+            ...displayDateChips(task, ref),
           ],
         ),
       ],
     );
+  }
+
+  List<Widget> displayDateChips(Task task, WidgetRef ref) {
+    final showDoDateOverDueDate =
+        ref.watch(viewSettingsProvider).showDoDateOverDueDate;
+
+    if (showDoDateOverDueDate) {
+      return [
+        const VerticalLineDivider(),
+        if (task.doDate != null)
+          DateTaskChip(
+            prefix: "Do",
+            dueDate: task.doDate!,
+          )
+        else if (task.dueDate != null)
+          DateTaskChip(
+            prefix: "Due",
+            dueDate: task.dueDate!,
+          ),
+      ];
+    }
+
+    return [
+      if (task.dueDate != null) ...[
+        const VerticalLineDivider(),
+        DateTaskChip(
+          prefix: "Due",
+          dueDate: task.dueDate!,
+        ),
+      ],
+      if (task.doDate != null) ...[
+        const VerticalLineDivider(),
+        DateTaskChip(
+          prefix: "Do",
+          dueDate: task.doDate!,
+        ),
+      ],
+    ];
   }
 }
 

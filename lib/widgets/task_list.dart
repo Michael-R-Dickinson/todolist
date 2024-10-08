@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todolist/providers/compact_mode_provider.dart';
+import 'package:todolist/providers/view_settings_provider.dart';
 import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/widgets/task_item/base_task.dart';
 
@@ -26,7 +26,7 @@ class TodoList extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            ref.read(compactModeProvider.notifier).toggle();
+            ref.read(viewSettingsProvider.notifier).toggleCompactMode();
           },
           child: const Text('PRESS ME'),
         ),

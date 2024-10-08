@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todolist/providers/compact_mode_provider.dart';
+import 'package:todolist/providers/view_settings_provider.dart';
+import 'package:todolist/schemas/view_settings.dart';
 import 'package:todolist/theme/custom_theme.dart';
 import 'package:todolist/widgets/task_item/compact_task.dart';
 import 'package:todolist/widgets/task_item/default_task.dart';
@@ -48,7 +49,7 @@ class BaseTaskItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isCompactMode = ref.watch(compactModeProvider);
+    final bool isCompactMode = ref.watch(viewSettingsProvider).compactMode;
 
     return TaskItemWrapper(
       isCompactMode: isCompactMode,

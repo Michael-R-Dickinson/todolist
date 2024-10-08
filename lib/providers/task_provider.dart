@@ -5,6 +5,8 @@ final testingTasks = [
   Task(
     id: "asldjf",
     name: "Website for Rune.io",
+    dueDate: DateTime.now().add(const Duration(days: 12)),
+    doDate: DateTime.now(),
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus pellentesque sagittis ultricies. In ac tempor metus, id lacinia felis. Sed eu vehicula erat.",
   ),
@@ -12,10 +14,12 @@ final testingTasks = [
     id: "asldjfds",
     name: "Ooh Laa Laa",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    dueDate: DateTime.now(),
   ),
   Task(
     id: "asldjfdjdfs",
     name: "Ooh Laa Laa",
+    dueDate: DateTime.now().add(const Duration(days: 1)),
   )
 ];
 
