@@ -31,9 +31,10 @@ class TaskChipWrapper extends StatelessWidget {
   }
 }
 
-class DueDateTaskChip extends StatelessWidget {
+class DateTaskChip extends StatelessWidget {
   final DateTime dueDate;
-  const DueDateTaskChip({super.key, required this.dueDate});
+  final String? prefix;
+  const DateTaskChip({super.key, required this.dueDate, this.prefix});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class DueDateTaskChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(size: ICON_SIZE, Icons.calendar_month_outlined),
-          Text(formatReadableDate(dueDate))
+          Text("$prefix ${formatReadableDate(dueDate)}")
         ],
       ),
     );

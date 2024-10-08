@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: customTheme,
-        themeMode: ThemeMode.light,
-        home: const Scaffold(body: TodoList()));
+      title: 'Flutter Demo',
+      theme: customTheme,
+      themeMode: ThemeMode.light,
+      home: const Scaffold(body: TodoList()),
+    );
   }
 }

@@ -6,12 +6,15 @@ import 'package:todolist/widgets/task_item/task_chip.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
 import 'package:todolist/widgets/vertical_line_divider.dart';
 
-class DefaultTaskItem extends StatelessWidget {
+class DefaultTaskItem extends ConsumerWidget {
   final String id;
   const DefaultTaskItem({super.key, required this.id});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final task = ref.watch(taskProvider(id));
+    if (task == null) return const SizedBox.shrink();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       textBaseline: TextBaseline.alphabetic,
@@ -20,17 +23,23 @@ class DefaultTaskItem extends StatelessWidget {
         const SizedBox(height: 8),
         Wrap(
           spacing: 10,
-          // alignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             const IconTextTaskChip(),
-            const VerticalLineDivider(),
-            DueDateTaskChip(
-                dueDate: DateTime.now().add(const Duration(days: 3))),
-            const VerticalLineDivider(),
-            DueDateTaskChip(
-              dueDate: DateTime.now().add(const Duration(days: 200)),
-            ),
+            if (task.dueDate != null) ...[
+              const VerticalLineDivider(),
+              DateTaskChip(
+                prefix: "Due",
+                dueDate: task.dueDate!,
+              ),
+            ],
+            if (task.doDate != null) ...[
+              const VerticalLineDivider(),
+              DateTaskChip(
+                prefix: "Do",
+                dueDate: task.doDate!,
+              ),
+            ],
           ],
         ),
       ],
