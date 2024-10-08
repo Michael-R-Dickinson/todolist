@@ -34,7 +34,9 @@ class TaskChipWrapper extends StatelessWidget {
 class DateTaskChip extends StatelessWidget {
   final DateTime dueDate;
   final String? prefix;
-  const DateTaskChip({super.key, required this.dueDate, this.prefix});
+  final Color? accentColor;
+  const DateTaskChip(
+      {super.key, required this.dueDate, this.prefix, this.accentColor});
 
   @override
   Widget build(BuildContext context) {
