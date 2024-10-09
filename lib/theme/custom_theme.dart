@@ -15,6 +15,12 @@ const compactShadow = BoxShadow(
 
 final customTheme = ThemeData(
   useMaterial3: true,
+  cardColor: cardColor,
+  primaryColor: const Color.fromARGB(255, 242, 110, 86),
+  navigationBarTheme: const NavigationBarThemeData(
+    elevation: 0,
+    backgroundColor: cardColor,
+  ),
   textTheme: const TextTheme(
     titleMedium: TextStyle(
       fontSize: 15,

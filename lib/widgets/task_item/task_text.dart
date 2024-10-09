@@ -33,7 +33,7 @@ class TaskText extends StatelessWidget {
                 DetailedUnderlinedText(
                   text: projectName!,
                   underlineOffset: -4,
-                  underlineColor: projectAccentColor,
+                  underlineColor: projectAccentColor?.withAlpha(150),
                   style: titleTextStyle,
                 ),
               SizedBox(width: projectName != null ? projectGap : 0),
