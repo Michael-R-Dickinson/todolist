@@ -74,7 +74,7 @@ class DetailedUnderlinedText extends StatelessWidget {
           color: Colors.transparent,
           decoration: TextDecoration.underline,
           decorationThickness: underlineThickness,
-          decorationColor: Colors.green,
+          decorationColor: underlineColor,
         ),
         textHeightBehavior: const TextHeightBehavior(
           applyHeightToLastDescent: false,

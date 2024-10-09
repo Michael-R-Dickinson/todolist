@@ -1,5 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:todolist/schemas/task.dart';
+import 'package:collection/collection.dart';
 
 final testingTasks = [
   Task(
@@ -9,17 +10,20 @@ final testingTasks = [
     doDate: DateTime.now(),
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus pellentesque sagittis ultricies. In ac tempor metus, id lacinia felis. Sed eu vehicula erat.",
+    projectId: '1',
   ),
   Task(
     id: "asldjfds",
     name: "Ooh Laa Laa",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     dueDate: DateTime.now(),
+    projectId: '2',
   ),
   Task(
     id: "asldjfdjdfs",
     name: "Ooh Laa Laa",
     dueDate: DateTime.now().add(const Duration(days: 1)),
+    projectId: '3',
   )
 ];
 
@@ -39,5 +43,5 @@ class TaskListNotifier extends StateNotifier<List<Task>> {
 // Fetch a Todo? by its id String
 final taskProvider = Provider.family<Task?, String>((ref, id) {
   final todos = ref.watch(taskListProvider);
-  return todos.firstWhere((todo) => todo.id == id);
+  return todos.firstWhereOrNull((todo) => todo.id == id);
 });

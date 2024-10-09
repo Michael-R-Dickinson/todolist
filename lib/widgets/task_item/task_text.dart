@@ -6,6 +6,7 @@ class TaskText extends StatelessWidget {
   final String title;
   final String? description;
   final String? projectName;
+  final Color? projectAccentColor;
   final bool useLongerProjectGap;
 
   const TaskText({
@@ -13,6 +14,7 @@ class TaskText extends StatelessWidget {
     required this.title,
     this.description,
     this.projectName,
+    this.projectAccentColor,
     this.useLongerProjectGap = false,
   });
 
@@ -31,7 +33,7 @@ class TaskText extends StatelessWidget {
                 DetailedUnderlinedText(
                   text: projectName!,
                   underlineOffset: -4,
-                  underlineColor: Colors.green,
+                  underlineColor: projectAccentColor,
                   style: titleTextStyle,
                 ),
               SizedBox(width: projectName != null ? projectGap : 0),

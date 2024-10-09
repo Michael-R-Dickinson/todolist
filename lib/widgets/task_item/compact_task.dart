@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/providers/project_provider.dart';
 import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
 
@@ -13,14 +14,16 @@ class CompactTaskItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // ! Investigate using select
-    final todo = ref.watch(taskProvider(id));
-
-    if (todo == null) return const SizedBox.shrink();
+    final task = ref.watch(taskProvider(id));
+    if (task == null) return const SizedBox.shrink();
+    final project = task.projectId != null
+        ? ref.watch(projectProvider(task.projectId!))
+        : null;
 
     return Row(children: [
       TaskText(
-        title: todo.name.toString(),
-        projectName: "CPSC 110",
+        title: task.name.toString(),
+        projectName: project?.name,
         useLongerProjectGap: true,
       ),
     ]);

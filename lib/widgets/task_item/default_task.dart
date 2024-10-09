@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/providers/project_provider.dart';
 import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/providers/view_settings_provider.dart';
 import 'package:todolist/schemas/task.dart';
@@ -86,6 +87,10 @@ class TaskBasicInfo extends ConsumerWidget {
     final task = ref.watch(taskProvider(id));
     if (task == null) return const SizedBox.shrink();
 
+    final project = task.projectId != null
+        ? ref.watch(projectProvider(task.projectId!))
+        : null;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -96,14 +101,15 @@ class TaskBasicInfo extends ConsumerWidget {
                 child: TaskText(
                   title: task.name,
                   description: task.description,
-                  projectName: "CPSC 110",
+                  projectName: project?.name,
+                  projectAccentColor: project?.color,
                   useLongerProjectGap: true,
                 ),
               ),
             ],
           ),
         ),
-        const ProgressCircle(percent: 0.5),
+        const ProgressCircle(percent: 0.6),
       ],
     );
   }
