@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 String formatReadableDate(DateTime date) {
@@ -39,4 +40,46 @@ String formatReadableDate(DateTime date) {
   }
 
   return dateString;
+}
+
+class DetailedUnderlinedText extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+  final double underlineOffset;
+  final double underlineThickness;
+  final Color? underlineColor;
+
+  const DetailedUnderlinedText({
+    required this.text,
+    super.key,
+    this.style,
+    this.underlineColor,
+    this.underlineOffset = 1,
+    this.underlineThickness = 1,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform.translate(
+      offset: Offset(0, underlineOffset),
+      child: Text(
+        text,
+        style: style?.copyWith(
+          shadows: [
+            Shadow(
+              color: style?.color ?? Colors.black,
+              offset: Offset(0, -underlineOffset),
+            ),
+          ],
+          color: Colors.transparent,
+          decoration: TextDecoration.underline,
+          decorationThickness: underlineThickness,
+          decorationColor: Colors.green,
+        ),
+        textHeightBehavior: const TextHeightBehavior(
+          applyHeightToLastDescent: false,
+        ),
+      ),
+    );
+  }
 }

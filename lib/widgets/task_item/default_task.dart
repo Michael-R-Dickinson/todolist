@@ -93,8 +93,12 @@ class TaskBasicInfo extends ConsumerWidget {
           child: Row(
             children: [
               Expanded(
-                child:
-                    TaskText(title: task.name, description: task.description),
+                child: TaskText(
+                  title: task.name,
+                  description: task.description,
+                  projectName: "CPSC 110",
+                  useLongerProjectGap: true,
+                ),
               ),
             ],
           ),

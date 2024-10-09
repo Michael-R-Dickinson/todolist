@@ -18,7 +18,11 @@ class CompactTaskItem extends ConsumerWidget {
     if (todo == null) return const SizedBox.shrink();
 
     return Row(children: [
-      TaskText(title: todo.name.toString()),
+      TaskText(
+        title: todo.name.toString(),
+        projectName: "CPSC 110",
+        useLongerProjectGap: true,
+      ),
       // ElevatedButton(
       //     onPressed: () => ref.read(todoController.notifier).add(),
       //     child: const Text('add'))
