@@ -24,6 +24,7 @@ class CompactTaskItem extends ConsumerWidget {
       TaskText(
         title: task.name.toString(),
         projectName: project?.name,
+        projectAccentColor: project?.color,
         useLongerProjectGap: true,
       ),
     ]);
