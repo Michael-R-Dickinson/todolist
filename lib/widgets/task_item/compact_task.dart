@@ -23,9 +23,6 @@ class CompactTaskItem extends ConsumerWidget {
         projectName: "CPSC 110",
         useLongerProjectGap: true,
       ),
-      // ElevatedButton(
-      //     onPressed: () => ref.read(todoController.notifier).add(),
-      //     child: const Text('add'))
     ]);
   }
 }
