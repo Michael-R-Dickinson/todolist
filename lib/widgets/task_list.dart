@@ -1,15 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:todolist/providers/view_settings_provider.dart';
 import 'package:todolist/providers/task_provider.dart';
-import 'package:todolist/theme/colors.dart';
 import 'package:todolist/widgets/task_item/base_task.dart';
 import 'package:todolist/widgets/today_headline.dart';
 import 'package:todolist/widgets/today_progress_bars.dart';
-import 'package:todolist/widgets/today_tasktype_switcher.dart';
 
 class TodoList extends ConsumerWidget {
   const TodoList({super.key});
