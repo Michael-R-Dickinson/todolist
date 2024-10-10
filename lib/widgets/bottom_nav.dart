@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/screens/planner_view.dart';
 import 'package:todolist/widgets/add_task_button.dart';
 
 class BottomNav extends StatelessWidget {
@@ -25,7 +26,13 @@ class BottomNav extends StatelessWidget {
             IconButton(
               color: Theme.of(context).primaryColor,
               icon: const Icon(Icons.subject_outlined),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const PlannerView(),
+                  ),
+                );
+              },
             ),
             IconButton(
               color: Theme.of(context).primaryColor,

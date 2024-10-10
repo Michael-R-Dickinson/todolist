@@ -45,7 +45,10 @@ class DateTaskChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(size: ICON_SIZE, Icons.calendar_month_outlined),
-          Text("$prefix ${formatReadableDate(dueDate)}")
+          Text(
+            "$prefix ${formatReadableDate(dueDate)}",
+            style: Theme.of(context).textTheme.bodyMedium,
+          )
         ],
       ),
     );
