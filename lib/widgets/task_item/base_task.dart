@@ -20,7 +20,7 @@ class TaskItemWrapper extends StatelessWidget {
     const double xPadding = 16;
     return Container(
         width: double.infinity,
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         padding: EdgeInsets.fromLTRB(xPadding, yPadding, xPadding, yPadding),
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,

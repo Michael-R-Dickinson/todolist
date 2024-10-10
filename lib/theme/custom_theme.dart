@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:todolist/theme/colors.dart';
 
 const basicShadow = BoxShadow(
@@ -16,7 +17,7 @@ const compactShadow = BoxShadow(
 final customTheme = ThemeData(
   useMaterial3: true,
   cardColor: cardColor,
-  primaryColor: const Color.fromARGB(255, 242, 110, 86),
+  primaryColor: primaryColors['red'],
   navigationBarTheme: const NavigationBarThemeData(
     elevation: 0,
     backgroundColor: cardColor,
@@ -31,6 +32,11 @@ final customTheme = ThemeData(
     bodyMedium: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.normal,
+      fontFamily: 'LinikSans',
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
       fontFamily: 'LinikSans',
     ),
   ),
