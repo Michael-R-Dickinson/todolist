@@ -29,50 +29,49 @@ class DefaultTaskItem extends ConsumerWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             const IconTextTaskChip(),
+            const VerticalLineDivider(),
             ...displayDateChips(task, ref),
           ],
         ),
       ],
     );
   }
+}
 
-  List<Widget> displayDateChips(Task task, WidgetRef ref) {
-    final showDoDateOverDueDate =
-        ref.watch(viewSettingsProvider).showDoDateOverDueDate;
+List<Widget> displayDateChips(Task task, WidgetRef ref) {
+  final showDoDateOverDueDate =
+      ref.watch(viewSettingsProvider).showDoDateOverDueDate;
 
-    if (showDoDateOverDueDate) {
-      return [
-        const VerticalLineDivider(),
-        if (task.doDate != null)
-          DateTaskChip(
-            prefix: "Do",
-            dueDate: task.doDate!,
-          )
-        else if (task.dueDate != null)
-          DateTaskChip(
-            prefix: "Due",
-            dueDate: task.dueDate!,
-          ),
-      ];
-    }
-
+  if (showDoDateOverDueDate) {
     return [
-      if (task.dueDate != null) ...[
-        const VerticalLineDivider(),
+      if (task.doDate != null)
+        DateTaskChip(
+          prefix: "Do",
+          dueDate: task.doDate!,
+        )
+      else if (task.dueDate != null)
         DateTaskChip(
           prefix: "Due",
           dueDate: task.dueDate!,
         ),
-      ],
-      if (task.doDate != null) ...[
-        const VerticalLineDivider(),
-        DateTaskChip(
-          prefix: "Do",
-          dueDate: task.doDate!,
-        ),
-      ],
     ];
   }
+
+  return [
+    if (task.dueDate != null) ...[
+      DateTaskChip(
+        prefix: "Due",
+        dueDate: task.dueDate!,
+      ),
+    ],
+    if (task.doDate != null) ...[
+      const VerticalLineDivider(),
+      DateTaskChip(
+        prefix: "Do",
+        dueDate: task.doDate!,
+      ),
+    ],
+  ];
 }
 
 class TaskBasicInfo extends ConsumerWidget {

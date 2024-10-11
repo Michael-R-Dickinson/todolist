@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/widgets/planner_task.dart';
-import 'package:todolist/widgets/task_item/base_task.dart';
 
 class PlannerView extends ConsumerWidget {
   const PlannerView({super.key});
@@ -31,7 +30,7 @@ class PlannerView extends ConsumerWidget {
                 shrinkWrap: true,
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
-                  return const PlannerTask();
+                  return PlannerTask(id: tasks[index].id);
                 },
               ),
             ),

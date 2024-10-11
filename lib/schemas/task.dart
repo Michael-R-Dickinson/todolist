@@ -21,6 +21,8 @@ class Task {
 
   double? fracIndexOrder;
 
+  bool todayTask;
+
   Task({
     required this.id,
     required this.name,
@@ -33,24 +35,36 @@ class Task {
     this.projectId,
     this.timeLog,
     this.fracIndexOrder,
+    this.todayTask = false,
   });
 
   Task copyWith({
+    String? id,
     String? name,
     String? description,
+    int? storyPoints,
+    DateTime? dueDate,
+    DateTime? doDate,
+    bool? emergency,
+    bool? locational,
+    String? projectId,
+    TaskTimeData? timeLog,
+    double? fracIndexOrder,
+    bool? todayTask,
   }) {
     return Task(
-      id: id,
+      id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
-      storyPoints: storyPoints,
-      dueDate: dueDate,
-      doDate: doDate,
-      emergency: emergency,
-      locational: locational,
-      projectId: projectId,
-      timeLog: timeLog,
-      fracIndexOrder: fracIndexOrder,
+      storyPoints: storyPoints ?? this.storyPoints,
+      dueDate: dueDate ?? this.dueDate,
+      doDate: doDate ?? this.doDate,
+      emergency: emergency ?? this.emergency,
+      locational: locational ?? this.locational,
+      projectId: projectId ?? this.projectId,
+      timeLog: timeLog ?? this.timeLog,
+      fracIndexOrder: fracIndexOrder ?? this.fracIndexOrder,
+      todayTask: todayTask ?? this.todayTask,
     );
   }
 }

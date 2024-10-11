@@ -37,22 +37,50 @@ class TaskText extends StatelessWidget {
                   style: titleTextStyle,
                 ),
               SizedBox(width: projectName != null ? projectGap : 0),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium,
-                textHeightBehavior:
-                    const TextHeightBehavior(applyHeightToLastDescent: false),
-              ),
+              TaskTitleText(title: title),
             ],
           ),
           const SizedBox(height: 4),
           if (description != null)
-            Text(
-              description!,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: textLight,
-                  ),
-            )
+            TaskDescriptionText(description: description!)
         ]);
+  }
+}
+
+class TaskDescriptionText extends StatelessWidget {
+  const TaskDescriptionText(
+      {super.key, required this.description, this.truncateToOneLine = false});
+
+  final String description;
+  final bool truncateToOneLine;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      description,
+      overflow: truncateToOneLine ? TextOverflow.ellipsis : null,
+      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: textLight,
+          ),
+    );
+  }
+}
+
+class TaskTitleText extends StatelessWidget {
+  const TaskTitleText({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.titleMedium,
+      textHeightBehavior:
+          const TextHeightBehavior(applyHeightToLastDescent: false),
+    );
   }
 }

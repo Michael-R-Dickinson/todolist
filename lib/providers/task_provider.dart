@@ -21,7 +21,7 @@ final testingTasks = [
   ),
   Task(
     id: "asldjfdjdfs",
-    name: "Ooh Laa Laa",
+    name: "Comp Sci Problem Set",
     dueDate: DateTime.now().add(const Duration(days: 1)),
     projectId: '3',
   )
@@ -34,8 +34,12 @@ final taskListProvider = StateNotifierProvider<TaskListNotifier, List<Task>>(
 class TaskListNotifier extends StateNotifier<List<Task>> {
   TaskListNotifier() : super(testingTasks);
 
-  addTodo(Task todo) {
-    state = [...state, todo];
+  addTask(Task task) {
+    state = [...state, task];
+  }
+
+  updateTask(String id, Task updatedTask) {
+    state = state.map((t) => t.id == id ? updatedTask : t).toList();
   }
 }
 
