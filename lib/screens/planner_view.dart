@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todolist/providers/task_provider.dart';
-import 'package:todolist/widgets/planner_task.dart';
+import 'package:todolist/theme/colors.dart';
+import 'package:todolist/widgets/planner_task_list.dart';
 
 class PlannerView extends ConsumerWidget {
   const PlannerView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final tasks = ref.watch(taskListProvider);
     return Container(
-      color: Theme.of(context).cardColor,
+      color: backgroundColor,
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,17 +23,7 @@ class PlannerView extends ConsumerWidget {
             thickness: 1,
           ),
           const SizedBox(height: 8),
-          Container(
-            child: Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: tasks.length,
-                itemBuilder: (context, index) {
-                  return PlannerTask(id: tasks[index].id);
-                },
-              ),
-            ),
-          ),
+          const PlannerTaskList(),
         ],
       ),
     );
