@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/providers/project_provider.dart';
 import 'package:todolist/theme/colors.dart';
-import 'package:todolist/widgets/planner_task_list.dart';
+import 'package:todolist/widgets/project_tasks_list.dart';
 
 class PlannerView extends ConsumerWidget {
   const PlannerView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final projects = ref.watch(projectListNotifierProvider);
     return Container(
       color: backgroundColor,
       padding: const EdgeInsets.all(16),
@@ -23,7 +25,14 @@ class PlannerView extends ConsumerWidget {
             thickness: 1,
           ),
           const SizedBox(height: 8),
-          const PlannerTaskList(),
+          Expanded(
+            child: ListView.builder(
+              itemCount: projects.length,
+              itemBuilder: (context, index) {
+                return ProjectTasksList(project: projects[index]);
+              },
+            ),
+          ),
         ],
       ),
     );

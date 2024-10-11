@@ -27,6 +27,11 @@ final customTheme = ThemeData(
       fontWeight: FontWeight.w600,
       fontFamily: 'LinikSans',
     ),
+    headlineSmall: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      fontFamily: 'LinikSans',
+    ),
   ),
   scaffoldBackgroundColor: backgroundColor,
 );

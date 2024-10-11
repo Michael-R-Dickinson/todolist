@@ -49,3 +49,10 @@ final taskProvider = Provider.family<Task?, String>((ref, id) {
   final todos = ref.watch(taskListProvider);
   return todos.firstWhereOrNull((todo) => todo.id == id);
 });
+
+final tasksForProjectProvider = Provider.family<List<Task>, String>(
+  (ref, projectId) {
+    final tasks = ref.watch(taskListProvider);
+    return tasks.where((task) => task.projectId == projectId).toList();
+  },
+);
