@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/schemas/project.dart';
 import 'package:collection/collection.dart';
-import 'package:todolist/schemas/task.dart';
 
 final testingProjects = [
   Project(
