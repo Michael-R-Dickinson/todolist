@@ -56,3 +56,8 @@ final tasksForProjectProvider = Provider.family<List<Task>, String>(
     return tasks.where((task) => task.projectId == projectId).toList();
   },
 );
+
+final todayTasksProvider = Provider<List<Task>>((ref) {
+  final tasks = ref.watch(taskListProvider);
+  return tasks.where((task) => task.todayTask == true).toList();
+});

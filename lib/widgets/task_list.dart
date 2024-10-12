@@ -11,7 +11,7 @@ class TodoList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final tasks = ref.watch(taskListProvider);
+    final tasks = ref.watch(todayTasksProvider);
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -24,7 +24,6 @@ class TodoList extends ConsumerWidget {
             singleBar: false,
           ),
           const SizedBox(height: 5),
-          // const TodayTasktypeSwitcher(),
           const SizedBox(height: 5),
           Column(
             children: [
