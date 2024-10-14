@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todolist/providers/view_settings_provider.dart';
 import 'package:todolist/providers/task_provider.dart';
 import 'package:todolist/widgets/task_item/base_task.dart';
 import 'package:todolist/widgets/today_headline.dart';
