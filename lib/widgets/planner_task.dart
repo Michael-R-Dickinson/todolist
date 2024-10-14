@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todolist/providers/task_provider.dart';
+import 'package:todolist/providers/view_settings_provider.dart';
 import 'package:todolist/schemas/task.dart';
+import 'package:todolist/theme/colors.dart';
+import 'package:todolist/widgets/completion_circle.dart';
 import 'package:todolist/widgets/task_item/base_task.dart';
 import 'package:todolist/widgets/task_item/default_task.dart';
 import 'package:todolist/widgets/task_item/task_text.dart';
@@ -36,23 +39,48 @@ class PlannerTask extends ConsumerWidget {
         child: TaskItemWrapper(
           isCompactMode: false,
           selected: selected,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              TaskTitleText(title: task.name),
-              if (task.description != null)
-                TaskDescriptionText(
-                  description: task.description!,
-                  truncateToOneLine: true,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TaskTitleText(title: task.name),
+                    if (task.description != null)
+                      TaskDescriptionText(
+                        description: task.description!,
+                        truncateToOneLine: true,
+                      ),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 10,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        ...displayDateChips(task, ref),
+                      ],
+                    ),
+                  ],
                 ),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 10,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  ...displayDateChips(task, ref),
-                ],
               ),
+              const SizedBox(width: 20),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.black12,
+                    style: BorderStyle.solid,
+                    width: 2,
+                  ),
+                ),
+                child: const Text(
+                  "15",
+                  style: TextStyle(
+                    color: cardElevatedText,
+                    fontSize: 18,
+                  ),
+                ),
+              )
             ],
           ),
         ),

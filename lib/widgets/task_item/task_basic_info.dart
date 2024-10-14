@@ -39,7 +39,6 @@ class TaskBasicInfo extends ConsumerWidget {
             ],
           ),
         ),
-        const ProgressCircle(percent: 0.6),
       ],
     );
   }
