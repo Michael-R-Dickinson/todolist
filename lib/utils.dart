@@ -83,3 +83,11 @@ class DetailedUnderlinedText extends StatelessWidget {
     );
   }
 }
+
+BoxShadow makeDefaultBoxShadow(Color color) {
+  return BoxShadow(
+    color: color,
+    spreadRadius: -5,
+    offset: const Offset(0, 10),
+  );
+}

@@ -19,6 +19,7 @@ class BottomNav extends StatelessWidget {
       ),
       child: BottomAppBar(
         color: Theme.of(context).cardColor,
+        padding: const EdgeInsets.all(8),
         height: 65,
         elevation: 0,
         child: Row(

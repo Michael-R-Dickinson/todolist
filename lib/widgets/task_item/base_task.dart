@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todolist/constants.dart';
 import 'package:todolist/providers/view_settings_provider.dart';
+import 'package:todolist/utils.dart';
 import 'package:todolist/widgets/task_item/compact_task.dart';
 import 'package:todolist/widgets/task_item/default_task.dart';
 
@@ -24,11 +26,7 @@ class TaskItemWrapper extends StatelessWidget {
       );
     }
 
-    return BoxShadow(
-      color: color,
-      spreadRadius: -5,
-      offset: const Offset(0, 10),
-    );
+    return makeDefaultBoxShadow(color);
   }
 
   @override
@@ -53,7 +51,7 @@ class TaskItemWrapper extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         boxShadow: [makeShadow(boxColor)],
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: taskBorderRadius,
         border: Border.all(
           color: boxColor,
           style: BorderStyle.solid,
