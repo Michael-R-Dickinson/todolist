@@ -36,12 +36,6 @@ class TodoList extends ConsumerWidget {
                 },
                 itemCount: tasks.length,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  ref.read(viewSettingsProvider.notifier).toggleCompactMode();
-                },
-                child: const Text('PRESS ME'),
-              ),
             ],
           ),
         ],
