@@ -28,6 +28,9 @@ class TaskCreationForm extends HookWidget {
             height: 50,
             child: CreateTaskDates(),
           ),
+          const SizedBox(
+            height: 150,
+          )
         ],
       ),
     );
