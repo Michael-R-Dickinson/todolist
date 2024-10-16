@@ -23,6 +23,8 @@ class Task {
 
   bool todayTask;
 
+  bool completed;
+
   Task({
     required this.id,
     required this.name,
@@ -36,6 +38,7 @@ class Task {
     this.timeLog,
     this.fracIndexOrder,
     this.todayTask = false,
+    this.completed = false,
   });
 
   Task copyWith({
@@ -51,6 +54,7 @@ class Task {
     TaskTimeData? timeLog,
     double? fracIndexOrder,
     bool? todayTask,
+    bool? completed,
   }) {
     return Task(
       id: id ?? this.id,
@@ -65,6 +69,7 @@ class Task {
       timeLog: timeLog ?? this.timeLog,
       fracIndexOrder: fracIndexOrder ?? this.fracIndexOrder,
       todayTask: todayTask ?? this.todayTask,
+      completed: completed ?? this.completed,
     );
   }
 }
