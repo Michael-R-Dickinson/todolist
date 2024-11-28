@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:todolist/screens/planner_view.dart';
 import 'package:todolist/screens/today_view.dart';
 import 'package:todolist/widgets/add_task_button.dart';
@@ -29,22 +30,14 @@ class BottomNav extends StatelessWidget {
               color: Theme.of(context).primaryColor,
               icon: const Icon(Icons.subject_outlined),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const PlannerView(),
-                  ),
-                );
+                GoRouter.of(context).go('/planner');
               },
             ),
             IconButton(
               icon: const Icon(Icons.task_outlined),
               color: Theme.of(context).primaryColor,
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const TodayView(),
-                  ),
-                );
+                GoRouter.of(context).go('/');
               },
             ),
             const AddTaskButton(),
