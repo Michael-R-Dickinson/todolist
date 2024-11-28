@@ -27,7 +27,7 @@ class TaskText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
+          Wrap(
             children: [
               if (projectName != null)
                 DetailedUnderlinedText(
