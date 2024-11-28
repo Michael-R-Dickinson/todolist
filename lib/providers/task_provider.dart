@@ -59,5 +59,9 @@ final tasksForProjectProvider = Provider.family<List<Task>, String>(
 
 final todayTasksProvider = Provider<List<Task>>((ref) {
   final tasks = ref.watch(taskListProvider);
-  return tasks.where((task) => task.todayTask == true).toList();
+  return tasks
+      .where((t) => t.todayTask == true)
+      .sorted(
+          (a, b) => a.fracIndexOrder?.compareTo(b.fracIndexOrder ?? 0) ?? -1)
+      .toList();
 });
